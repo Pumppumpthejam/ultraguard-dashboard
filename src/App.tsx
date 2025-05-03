@@ -1,32 +1,26 @@
-import React from 'react';
-import Sidebar from './components/Sidebar';
-import Topbar from './components/Topbar.tsx';
-import LiveReportCard from './components/LiveReportCard';
-import AIAssistantCard from './components/AIAssistantCard';
-import BarChartCard from './components/BarChartCard';
-import SiteWatchlistCard from './components/SiteWatchlistCard';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout.tsx";
+import Dashboard from "./pages/Dashboard.tsx";
+import Devices from "./pages/Devices.tsx";
+import Sites from "./pages/Sites.tsx";
+import Shifts from "./pages/Shifts.tsx";
+import Reports from "./pages/Reports.tsx";
 
 
-
-
-const App = () => {
+const App: React.FC = () => {
   return (
-    <div className="flex h-screen">
-      <Sidebar />
-      <div className="flex flex-col flex-1 overflow-hidden">
-        <Topbar />
-        <main className="flex-1 p-6 bg-gray-100 overflow-auto">
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    <LiveReportCard />
-    <AIAssistantCard />
-    <BarChartCard />
-    <SiteWatchlistCard />
-  
-  </div>
-</main>
-
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="devices" element={<Devices />} />
+          <Route path="sites" element={<Sites />} />
+          <Route path="shifts" element={<Shifts />} />
+          <Route path="reports" element={<Reports />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
