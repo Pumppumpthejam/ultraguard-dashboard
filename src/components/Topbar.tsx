@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react";
 
-const Topbar = () => {
+const Topbar: React.FC = () => {
   return (
-    <header className="flex items-center justify-between bg-white shadow px-6 py-4">
-      <h1 className="text-xl font-semibold">Dashboard</h1>
+    <div className="h-16 flex items-center justify-between px-6 bg-white border-b border-gray-200">
+      <h2 className="text-xl font-semibold">Dashboard</h2>
       <div className="flex items-center gap-4">
         <input
           type="text"
           placeholder="Search..."
-          className="px-3 py-2 border rounded-md text-sm focus:outline-none"
+          className="px-3 py-1 border rounded-md text-sm w-48"
         />
         <div className="flex items-center gap-2">
           <img
             src="https://via.placeholder.com/32"
-            alt="User Avatar"
+            alt="User"
             className="w-8 h-8 rounded-full"
           />
           <span className="text-sm font-medium">John Doe</span>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 
